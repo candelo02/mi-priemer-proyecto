@@ -1,29 +1,34 @@
-﻿import React from 'react'
+import React from 'react'
 
 export interface TarjetaTramiteProps {
   titulo: string
   descripcion: string
   categoria: string
-  icono?: React.ReactNode
+  icon?: React.ReactNode
 }
 
 export const TarjetaTramite: React.FC<TarjetaTramiteProps> = ({
   titulo,
   descripcion,
   categoria,
-  icono
+  icon
 }) => {
+  const idSlug = `tramite-${titulo.toLowerCase().replace(/\s+/g, '-')}`
+
   return (
-    <article className="tarjeta-tramite">
+    <article className="tarjeta-tramite" id={idSlug}>
       <div className="tarjeta-header">
-        <span className="categoria-badge">{categoria}</span>
-        {icono && <div className="tarjeta-icono">{icono}</div>}
+        <span className="tarjeta-categoria">{categoria}</span>
+        {icon && <div className="tarjeta-icon">{icon}</div>}
       </div>
       <h3 className="tarjeta-titulo">{titulo}</h3>
       <p className="tarjeta-descripcion">{descripcion}</p>
       <div className="tarjeta-footer">
-        <button type="button" className="btn-tramite">
-          Consultar Solicitud
+        <button className="btn-tramite" type="button">
+          Consultar TrÃ¡mite
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </article>
