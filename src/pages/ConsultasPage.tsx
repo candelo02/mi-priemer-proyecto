@@ -10,7 +10,8 @@ import {
   Tag,
   User,
   Calendar,
-  ShieldAlert
+  ShieldAlert,
+  ChevronRight
 } from 'lucide-react'
 import './ConsultasPage.css'
 
@@ -25,7 +26,13 @@ export interface PqrsItem {
   respuestaOficial: string | null
 }
 
-export const ConsultasPage: React.FC = () => {
+interface ConsultasPageProps {
+  onSeleccionarRadicado?: (id: string) => void
+}
+
+export const ConsultasPage: React.FC<ConsultasPageProps> = ({
+  onSeleccionarRadicado
+}) => {
   const [pqrsList, setPqrsList] = useState<PqrsItem[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -41,7 +48,6 @@ export const ConsultasPage: React.FC = () => {
         throw new Error(`Error en el servidor (${response.status}: ${response.statusText})`)
       }
       const data = await response.json()
-      // Soporta tanto objeto wrapper { data: [...] } como array directo
       if (Array.isArray(data)) {
         setPqrsList(data)
       } else if (data && Array.isArray(data.data)) {
@@ -60,6 +66,14 @@ export const ConsultasPage: React.FC = () => {
   useEffect(() => {
     fetchPqrs()
   }, [fetchPqrs])
+
+  const handleCardClick = (id: string) => {
+    if (onSeleccionarRadicado) {
+      onSeleccionarRadicado(id)
+    } else {
+      window.location.hash = `#/consultas/${id}`
+    }
+  }
 
   const filteredPqrs = pqrsList.filter((item) => {
     const q = searchQuery.toLowerCase().trim()
@@ -163,7 +177,12 @@ export const ConsultasPage: React.FC = () => {
           {filteredPqrs.map((item) => {
             const isResuelto = item.estado.toLowerCase().includes('resuelto')
             return (
-              <article key={item.id} className="pqrs-card">
+              <article
+                key={item.id}
+                className="pqrs-card clickable-card"
+                onClick={() => handleCardClick(item.id)}
+                title="Haz clic para ver la ficha tÃ©cnica completa"
+              >
                 <div className="pqrs-card-header">
                   <span className="pqrs-radicado">
                     <FileText size={15} /> {item.id}
@@ -198,6 +217,11 @@ export const ConsultasPage: React.FC = () => {
                       <p>{item.respuestaOficial}</p>
                     </div>
                   )}
+
+                  <div className="ver-ficha-link">
+                    <span>Ver Ficha TÃ©cnica</span>
+                    <ChevronRight size={16} />
+                  </div>
                 </div>
               </article>
             )

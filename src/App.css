@@ -188,7 +188,7 @@ body {
   font-weight: 700;
 }
 
-/* Grid de TrÃ¡mites */
+/* Grid de TrÃƒÂ¡mites */
 .tramites-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

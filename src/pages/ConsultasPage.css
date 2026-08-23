@@ -89,7 +89,7 @@
   box-shadow: 0 2px 6px rgba(0, 51, 153, 0.25);
 }
 
-/* Tarjetas de Estado Visual (Cargando, Error, VacÃ­o) */
+/* Tarjetas de Estado Visual (Cargando, Error, VacÃƒÂ­o) */
 .state-card {
   background: #ffffff;
   border: 1px solid var(--border-light);
@@ -303,4 +303,24 @@
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+}
+/* Card Clickable & Ver Ficha Link */
+.pqrs-card.clickable-card {
+  cursor: pointer;
+}
+
+.ver-ficha-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--azul-institucional);
+  margin-top: 0.5rem;
+  transition: gap 0.2s ease;
+}
+
+.pqrs-card.clickable-card:hover .ver-ficha-link {
+  gap: 0.5rem;
 }

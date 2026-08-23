@@ -1,11 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Building2, Droplets, Trash2, Lightbulb, FileSearch } from 'lucide-react'
 import TarjetaTramite from './components/TarjetaTramite'
 import ConsultasPage from './pages/ConsultasPage'
+import DetalleConsultaPage from './pages/DetalleConsultaPage'
 import './App.css'
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'inicio' | 'consultas'>('inicio')
+  const [activeTab, setActiveTab] = useState<'inicio' | 'consultas' | 'detalle'>('inicio')
+  const [selectedRadicadoId, setSelectedRadicadoId] = useState<string>('')
+
+  // Sincronizar ruta / hash de la URL
+  useEffect(() => {
+    const handleHashOrUrl = () => {
+      const path = window.location.pathname
+      const hash = window.location.hash
+      const params = new URLSearchParams(window.location.search)
+
+      if (params.has('id')) {
+        setSelectedRadicadoId(params.get('id') || '')
+        setActiveTab('detalle')
+      } else if (path.includes('/consultas/') || hash.startsWith('#/consultas/')) {
+        const idFromPath = path.split('/consultas/')[1] || hash.replace('#/consultas/', '')
+        if (idFromPath) {
+          setSelectedRadicadoId(idFromPath)
+          setActiveTab('detalle')
+        } else {
+          setActiveTab('consultas')
+        }
+      } else if (hash === '#/consultas') {
+        setActiveTab('consultas')
+      }
+    }
+
+    handleHashOrUrl()
+    window.addEventListener('hashchange', handleHashOrUrl)
+    window.addEventListener('popstate', handleHashOrUrl)
+    return () => {
+      window.removeEventListener('hashchange', handleHashOrUrl)
+      window.removeEventListener('popstate', handleHashOrUrl)
+    }
+  }, [])
+
+  const handleSeleccionarRadicado = (id: string) => {
+    setSelectedRadicadoId(id)
+    setActiveTab('detalle')
+    window.location.hash = `#/consultas/${id}`
+  }
+
+  const handleVolverAConsultas = () => {
+    setActiveTab('consultas')
+    window.location.hash = '#/consultas'
+  }
 
   return (
     <div className="app">
@@ -35,14 +80,17 @@ export const App: React.FC = () => {
           <div className="nav-tabs-container" style={{ justifyContent: 'center', marginTop: '1.5rem' }}>
             <button
               className={`nav-tab-btn ${activeTab === 'inicio' ? 'active' : ''}`}
-              onClick={() => setActiveTab('inicio')}
+              onClick={() => {
+                setActiveTab('inicio')
+                window.location.hash = '#/'
+              }}
               id="tab-btn-inicio"
             >
               <Building2 size={16} /> Inicio (TrÃ¡mites)
             </button>
             <button
-              className={`nav-tab-btn ${activeTab === 'consultas' ? 'active' : ''}`}
-              onClick={() => setActiveTab('consultas')}
+              className={`nav-tab-btn ${activeTab === 'consultas' || activeTab === 'detalle' ? 'active' : ''}`}
+              onClick={handleVolverAConsultas}
               id="tab-btn-consultas"
             >
               <FileSearch size={16} /> Consultar Radicados PQRS
@@ -53,7 +101,7 @@ export const App: React.FC = () => {
 
       {/* Main Container */}
       <main className="main-container">
-        {activeTab === 'inicio' ? (
+        {activeTab === 'inicio' && (
           <>
             <div className="section-header-box">
               <div>
@@ -86,8 +134,17 @@ export const App: React.FC = () => {
               />
             </div>
           </>
-        ) : (
-          <ConsultasPage />
+        )}
+
+        {activeTab === 'consultas' && (
+          <ConsultasPage onSeleccionarRadicado={handleSeleccionarRadicado} />
+        )}
+
+        {activeTab === 'detalle' && (
+          <DetalleConsultaPage
+            radicadoId={selectedRadicadoId}
+            onVolver={handleVolverAConsultas}
+          />
         )}
       </main>
 
