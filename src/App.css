@@ -1,4 +1,4 @@
-﻿/* System Variables — Azul Institucional #003399 */
+/* System Variables — Azul Institucional #003399 */
 :root {
   --azul-institucional: #003399;
   --azul-hover: #002266;
@@ -305,5 +305,83 @@ body {
 
   .tarjeta-tramite {
     padding: 1.5rem;
+  }
+}
+/* Menú de Navegación */
+.nav-menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--texto-secundario);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--azul-subtil);
+  color: var(--azul-institucional);
+}
+
+.nav-link.active {
+  background-color: var(--azul-claro);
+  color: var(--azul-institucional);
+  border-color: rgba(0, 51, 153, 0.2);
+}
+
+/* Callout en Inicio */
+.callout-consultas {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+  border: 1px solid rgba(0, 51, 153, 0.2);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+.callout-text h3 {
+  color: var(--azul-institucional);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.callout-text p {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.btn-callout {
+  background-color: var(--azul-institucional);
+  color: var(--blanco);
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-callout:hover {
+  background-color: var(--azul-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .callout-consultas {
+    flex-direction: column;
+    text-align: center;
   }
 }

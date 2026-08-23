@@ -1,5 +1,6 @@
-﻿import React from 'react'
+import React, { useState } from 'react'
 import TarjetaTramite from './components/TarjetaTramite'
+import ConsultasPage from './pages/ConsultasPage'
 import './App.css'
 
 interface TramiteData {
@@ -14,7 +15,7 @@ const TRAMITES_DATA: TramiteData[] = [
   {
     id: 'agua',
     titulo: 'Agua y Alcantarillado',
-    descripcion: 'Reporte de fugas en vía pública, cortes programados o imprevistos del servicio y mantenimiento preventivo o correctivo de la red de alcantarillado.',
+    descripcion: 'Reporte de fugas en vÃ­a pÃºblica, cortes programados o imprevistos del servicio y mantenimiento preventivo o correctivo de la red de alcantarillado.',
     categoria: 'Fugas, cortes, alcantarillado',
     icono: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,9 +25,9 @@ const TRAMITES_DATA: TramiteData[] = [
   },
   {
     id: 'basura',
-    titulo: 'Recolección de Basura',
-    descripcion: 'Consulta de horarios y rutas de recolección por sector, reportes de acumulación de desechos en áreas públicas y atención a puntos críticos.',
-    categoria: 'Horarios, acumulación, puntos críticos',
+    titulo: 'RecolecciÃ³n de Basura',
+    descripcion: 'Consulta de horarios y rutas de recolecciÃ³n por sector, reportes de acumulaciÃ³n de desechos en Ã¡reas pÃºblicas y atenciÃ³n a puntos crÃ­ticos.',
+    categoria: 'Horarios, acumulaciÃ³n, puntos crÃ­ticos',
     icono: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="3 6 5 6 21 6"></polyline>
@@ -38,9 +39,9 @@ const TRAMITES_DATA: TramiteData[] = [
   },
   {
     id: 'alumbrado',
-    titulo: 'Alumbrado Público',
-    descripcion: 'Atención a reportes de lámparas y luminarias apagadas, fallas en circuitos de alumbrado de la zona y postes caídos o en riesgo.',
-    categoria: 'Lámparas apagadas, postes caídos',
+    titulo: 'Alumbrado PÃºblico',
+    descripcion: 'AtenciÃ³n a reportes de lÃ¡mparas y luminarias apagadas, fallas en circuitos de alumbrado de la zona y postes caÃ­dos o en riesgo.',
+    categoria: 'LÃ¡mparas apagadas, postes caÃ­dos',
     icono: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="2" x2="12" y2="6"></line>
@@ -57,9 +58,11 @@ const TRAMITES_DATA: TramiteData[] = [
 ]
 
 export const App: React.FC = () => {
+  const [vistaActual, setVistaActual] = useState<'inicio' | 'consultas'>('inicio')
+
   return (
     <div className="portal-container">
-      {/* Encabezado Institucional */}
+      {/* Encabezado Institucional con NavegaciÃ³n */}
       <header className="header-institucional">
         <div className="header-top">
           <div className="escudo-box">
@@ -71,50 +74,79 @@ export const App: React.FC = () => {
               <span className="portal-sub">Portal Oficial de Servicios Ciudadanos</span>
             </div>
           </div>
+
+          <div className="nav-menu">
+            <button 
+              className={`nav-link ${vistaActual === 'inicio' ? 'active' : ''}`}
+              onClick={() => setVistaActual('inicio')}
+            >
+              ðŸ›ï¸ Inicio
+            </button>
+            <button 
+              className={`nav-link ${vistaActual === 'consultas' ? 'active' : ''}`}
+              onClick={() => setVistaActual('consultas')}
+            >
+              ðŸ“‹ Consultar Radicados PQRS
+            </button>
+          </div>
+
           <div className="contacto-box">
-            <span>Línea Ciudadana: <strong>0800-RESPUESTAS</strong></span>
+            <span>LÃ­nea Ciudadana: <strong>0800-RESPUESTAS</strong></span>
           </div>
         </div>
         
-        {/* Banner Institucional con Título Principal */}
+        {/* Banner Institucional */}
         <div className="banner-institucional">
           <div className="banner-content">
-            <span className="badge-oficial">Plataforma de Atención Ciudadana</span>
+            <span className="badge-oficial">Plataforma de AtenciÃ³n Ciudadana</span>
             <h1 className="titulo-institucional">Respuestas</h1>
             <p className="subtitulo-institucional">
-              Consulta y gestión centralizada de reportes de servicios públicos para la comunidad
+              Consulta y gestiÃ³n centralizada de reportes de servicios pÃºblicos para la comunidad
             </p>
           </div>
         </div>
       </header>
 
-      {/* Sección Principal de Trámites y Servicios */}
+      {/* Vista DinÃ¡mica */}
       <main className="main-content">
-        <section className="sec-respuestas">
-          <div className="sec-header">
-            <h2>Trámites y Servicios Frecuentes</h2>
-            <p>Seleccione una categoría para consultar información o realizar un reporte ciudadano:</p>
-          </div>
+        {vistaActual === 'inicio' ? (
+          <section className="sec-respuestas">
+            <div className="sec-header">
+              <h2>TrÃ¡mites y Servicios Frecuentes</h2>
+              <p>Seleccione una categorÃ­a para consultar informaciÃ³n o realizar un reporte ciudadano:</p>
+            </div>
 
-          {/* Grilla Institucional de 3 Columnas */}
-          <div className="grid-tarjetas">
-            {TRAMITES_DATA.map((tramite) => (
-              <TarjetaTramite
-                key={tramite.id}
-                titulo={tramite.titulo}
-                descripcion={tramite.descripcion}
-                categoria={tramite.categoria}
-                icono={tramite.icono}
-              />
-            ))}
-          </div>
-        </section>
+            <div className="grid-tarjetas">
+              {TRAMITES_DATA.map((tramite) => (
+                <TarjetaTramite
+                  key={tramite.id}
+                  titulo={tramite.titulo}
+                  descripcion={tramite.descripcion}
+                  categoria={tramite.categoria}
+                  icono={tramite.icono}
+                />
+              ))}
+            </div>
+
+            <div className="callout-consultas">
+              <div className="callout-text">
+                <h3>Â¿Ya tienes un nÃºmero de radicado?</h3>
+                <p>Consulta en tiempo real el estado y respuesta de tu trÃ¡mite en nuestro mÃ³dulo oficial.</p>
+              </div>
+              <button className="btn-callout" onClick={() => setVistaActual('consultas')}>
+                Ir a Consultar Radicados â†’
+              </button>
+            </div>
+          </section>
+        ) : (
+          <ConsultasPage />
+        )}
       </main>
 
-      {/* Pie de Página Institucional */}
+      {/* Pie de PÃ¡gina Institucional */}
       <footer className="footer-institucional">
         <div className="footer-inner">
-          <p>© 2026 Gobierno Municipal — Portal Institucional de Servicios Públicos y Respuestas Ciudadanas</p>
+          <p>Â© 2026 Gobierno Municipal â€” Portal Institucional de Servicios PÃºblicos y Respuestas Ciudadanas</p>
         </div>
       </footer>
     </div>
