@@ -1,19 +1,19 @@
 [
   {
     "id": "PQRS-2026-001",
-    "solicitante": "Maria Elena Torres Rios",
+    "solicitante": "María Elena Torres Ríos",
     "categoria": "Agua y Alcantarillado",
-    "descripcion": "Fuga de agua en la tuberia principal ubicada en la Calle 12 No 45-23. El agua lleva tres dias brotando del pavimento causando deterioro vial.",
-    "estado": "En tramite",
+    "descripcion": "Fuga de agua en la tubería principal ubicada en la Calle 12 No 45-23. El agua lleva tres días brotando del pavimento causando deterioro vial y desperdicio del servicio.",
+    "estado": "En trámite",
     "fechaRadicacion": "2026-08-01",
     "plazoLegal": "2026-08-16",
     "respuestaOficial": null
   },
   {
     "id": "PQRS-2026-002",
-    "solicitante": "Carlos Andres Mejia Quintero",
+    "solicitante": "Carlos Andrés Mejía Quintero",
     "categoria": "Agua y Alcantarillado",
-    "descripcion": "Corte de suministro de agua sin previo aviso desde el 28 de julio. El sector Urbanizacion Los Pinos lleva mas de 6 dias sin servicio, afectando a 40 familias.",
+    "descripcion": "Corte de suministro de agua sin previo aviso desde el 28 de julio. El sector Urbanización Los Pinos lleva más de 6 días sin servicio, afectando a 40 familias.",
     "estado": "Resuelto",
     "fechaRadicacion": "2026-07-30",
     "plazoLegal": "2026-08-14",
@@ -21,30 +21,30 @@
   },
   {
     "id": "PQRS-2026-003",
-    "solicitante": "Luz Marina Castano Herrera",
+    "solicitante": "Luz Marina Castaño Herrera",
     "categoria": "Agua y Alcantarillado",
-    "descripcion": "Taponamiento del alcantarillado en la Carrera 8 entre Calles 30 y 32. Las aguas residuales se desbordan hacia la via publica generando riesgo sanitario.",
-    "estado": "En tramite",
+    "descripcion": "Taponamiento del alcantarillado en la Carrera 8 entre Calles 30 y 32. Las aguas residuales se desbordan hacia la vía pública generando riesgo sanitario.",
+    "estado": "En trámite",
     "fechaRadicacion": "2026-08-10",
     "plazoLegal": "2026-08-25",
     "respuestaOficial": null
   },
   {
     "id": "PQRS-2026-004",
-    "solicitante": "Jaime Alberto Rueda Pinzon",
-    "categoria": "Recoleccion de Basura",
-    "descripcion": "Acumulacion de residuos solidos en el Parque Central El Bosque desde hace 10 dias. La ruta de recoleccion no ha pasado generando plagas y malos olores.",
+    "solicitante": "Jaime Alberto Rueda Pinzón",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Acumulación de residuos sólidos en el Parque Central El Bosque desde hace 10 días. La ruta de recolección no ha pasado generando plagas y malos olores.",
     "estado": "Resuelto",
     "fechaRadicacion": "2026-07-25",
     "plazoLegal": "2026-08-09",
-    "respuestaOficial": "La ruta fue corregida y el aseo realizo la recoleccion especial el 28 de julio. Se programo frecuencia de recoleccion a dos veces por semana."
+    "respuestaOficial": "La ruta fue corregida y el aseo realizó la recolección especial el 28 de julio. Se programó frecuencia de recolección a dos veces por semana."
   },
   {
     "id": "PQRS-2026-005",
     "solicitante": "Sandra Patricia Ortiz Morales",
-    "categoria": "Recoleccion de Basura",
-    "descripcion": "Punto critico de basura ilegal en lote baldio ubicado en la Diagonal 15 No 22-10 barrio San Marcos. Residentes depositan escombros de manera irregular.",
-    "estado": "En tramite",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Punto crítico de basura ilegal en lote baldío ubicado en la Diagonal 15 No 22-10 barrio San Marcos. Residentes depositan escombros de manera irregular.",
+    "estado": "En trámite",
     "fechaRadicacion": "2026-08-12",
     "plazoLegal": "2026-08-27",
     "respuestaOficial": null
@@ -52,51 +52,51 @@
   {
     "id": "PQRS-2026-006",
     "solicitante": "Roberto Emilio Vargas Salcedo",
-    "categoria": "Recoleccion de Basura",
-    "descripcion": "Solicitud de informacion sobre horarios de recoleccion en el sector comercial de la Avenida Principal. Los comerciantes necesitan conocer el horario exacto.",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Solicitud de información sobre horarios de recolección en el sector comercial de la Avenida Principal. Los comerciantes necesitan conocer el horario exacto.",
     "estado": "Resuelto",
     "fechaRadicacion": "2026-08-05",
     "plazoLegal": "2026-08-20",
-    "respuestaOficial": "El horario de recoleccion para el sector comercial es de lunes a sabado entre las 5:00 AM y las 7:00 AM."
+    "respuestaOficial": "El horario de recolección para el sector comercial es de lunes a sábado entre las 5:00 AM y las 7:00 AM."
   },
   {
     "id": "PQRS-2026-007",
-    "solicitante": "Gloria Ines Patino Alvarez",
-    "categoria": "Alumbrado Publico",
-    "descripcion": "Tres lamparas de alumbrado apagadas en la Calle 20 entre Carreras 5 y 7, barrio La Esperanza. La oscuridad genera percepcion de inseguridad nocturna.",
+    "solicitante": "Gloria Inés Patiño Álvarez",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Tres lámparas de alumbrado apagadas en la Calle 20 entre Carreras 5 y 7, barrio La Esperanza. La oscuridad genera percepción de inseguridad nocturna.",
     "estado": "Resuelto",
     "fechaRadicacion": "2026-07-28",
     "plazoLegal": "2026-08-12",
-    "respuestaOficial": "El equipo tecnico reemplazo los tres bombillos danados el 5 de agosto. El circuito funciona con tecnologia LED."
+    "respuestaOficial": "El equipo técnico reemplazó los tres bombillos dañados el 5 de agosto. El circuito funciona con tecnología LED."
   },
   {
     "id": "PQRS-2026-008",
-    "solicitante": "Hernan Dario Suarez Londono",
-    "categoria": "Alumbrado Publico",
-    "descripcion": "Poste de alumbrado caido sobre la calzada peatonal en la Transversal 9 No 14-55. Representa riesgo para transuntes y vehiculos de la zona.",
-    "estado": "En tramite",
+    "solicitante": "Hernán Darío Suárez Londoño",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Poste de alumbrado caído sobre la calzada peatonal en la Transversal 9 No 14-55. Representa riesgo para transeúntes y vehículos de la zona.",
+    "estado": "En trámite",
     "fechaRadicacion": "2026-08-14",
     "plazoLegal": "2026-08-21",
     "respuestaOficial": null
   },
   {
     "id": "PQRS-2026-009",
-    "solicitante": "Ana Lucia Bedoya Monsalve",
-    "categoria": "Alumbrado Publico",
-    "descripcion": "Falla en el circuito de alumbrado de toda la Urbanizacion Villa del Rio. El sector permanece a oscuras en horas nocturnas. Se solicita inspeccion urgente.",
-    "estado": "En tramite",
+    "solicitante": "Ana Lucía Bedoya Monsalve",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Falla en el circuito de alumbrado de toda la Urbanización Villa del Río. El sector permanece a oscuras en horas nocturnas. Se solicita inspección urgente.",
+    "estado": "En trámite",
     "fechaRadicacion": "2026-08-11",
     "plazoLegal": "2026-08-26",
     "respuestaOficial": null
   },
   {
     "id": "PQRS-2026-010",
-    "solicitante": "Diego Fernando Rios Carmona",
+    "solicitante": "Diego Fernando Ríos Carmona",
     "categoria": "Agua y Alcantarillado",
-    "descripcion": "Dano en la tuberia de aguas lluvias en la esquina Calle 5 con Carrera 18. En lluvia el agua se estanca causando inundacion de viviendas y via publica.",
+    "descripcion": "Daño en la tubería de aguas lluvias en la esquina Calle 5 con Carrera 18. En lluvia el agua se estanca causando inundación de viviendas y vía pública.",
     "estado": "Resuelto",
     "fechaRadicacion": "2026-07-20",
     "plazoLegal": "2026-08-04",
-    "respuestaOficial": "Se realizo limpieza a presion y reparacion del colector el 1 de agosto. Sistema normalizado."
+    "respuestaOficial": "Se realizó limpieza a presión y reparación del colector el 1 de agosto. Sistema normalizado."
   }
 ]

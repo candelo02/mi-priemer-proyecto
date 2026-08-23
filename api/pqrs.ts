@@ -1,4 +1,4 @@
-﻿import express, { Request, Response } from 'express'
+import express, { Request, Response } from 'express'
 import { readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -11,13 +11,12 @@ const PORT = 3001
 
 // Middleware: CORS para desarrollo con Vite (puerto 5173)
 app.use((_req: Request, res: Response, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+  res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
   next()
 })
 
-// Middleware: JSON response format
 app.use(express.json())
 
 /**
@@ -46,7 +45,7 @@ app.get('/api/pqrs', (_req: Request, res: Response) => {
 
 /**
  * GET /api/pqrs/:id
- * Retorna un radicado por su ID
+ * Retorna un radicado específico por su ID o por código parcial
  */
 app.get('/api/pqrs/:id', (req: Request, res: Response) => {
   try {
@@ -54,7 +53,15 @@ app.get('/api/pqrs/:id', (req: Request, res: Response) => {
     const raw = readFileSync(filePath, 'utf-8')
     const pqrs: Array<{ id: string }> = JSON.parse(raw)
 
-    const item = pqrs.find((p) => p.id === req.params.id)
+    const targetId = req.params.id.toLowerCase()
+    const item = pqrs.find(
+      (p) =>
+        p.id.toLowerCase() === targetId ||
+        p.id.endsWith(`00${targetId}`) ||
+        p.id.endsWith(`0${targetId}`) ||
+        p.id === `PQRS-2026-0${targetId.padStart(2, '0')}` ||
+        p.id === `PQRS-2026-${targetId.padStart(3, '0')}`
+    )
 
     if (!item) {
       res.status(404).json({ ok: false, message: `Radicado ${req.params.id} no encontrado.` })
@@ -67,7 +74,6 @@ app.get('/api/pqrs/:id', (req: Request, res: Response) => {
   }
 })
 
-// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`\n  API PQRS corriendo en: http://localhost:${PORT}`)
   console.log(`  Endpoint disponible: http://localhost:${PORT}/api/pqrs\n`)
