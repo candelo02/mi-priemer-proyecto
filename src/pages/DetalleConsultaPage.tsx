@@ -71,7 +71,7 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
         const listData = await resList.json()
         const items: PqrsItem[] = Array.isArray(listData) ? listData : listData.data || []
         
-        // Buscar por ID exacto o por Ã­ndice numÃ©rico (ej: /consultas/1 -> PQRS-2026-001)
+        // Buscar por ID exacto o por Ã­ndice numérico (ej: /consultas/1 -> PQRS-2026-001)
         found = items.find(
           (p) =>
             p.id.toLowerCase() === activeId.toLowerCase() ||
@@ -83,7 +83,7 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
       }
 
       if (!found) {
-        throw new Error(`No se encontrÃ³ el radicado ${activeId}`)
+        throw new Error(`No se encontró el radicado ${activeId}`)
       }
 
       setItem(found)
@@ -119,7 +119,7 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
     return (
       <div className="detalle-state-card">
         <RotateCw className="spin-icon" size={40} color="#003399" />
-        <h3>Cargando Ficha TÃ©cnica...</h3>
+        <h3>Cargando Ficha Técnica...</h3>
         <p>Obteniendo el expediente completo del radicado {activeId}.</p>
       </div>
     )
@@ -142,7 +142,7 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
 
   return (
     <div className="detalle-page-container">
-      {/* BotÃ³n Superior para Volver */}
+      {/* Botón Superior para Volver */}
       <div className="top-navigation-bar">
         <button className="btn-back-link" onClick={handleVolver}>
           <ArrowLeft size={18} /> Volver a Consultas
@@ -166,9 +166,9 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
         </div>
       </div>
 
-      {/* Ficha TÃ©cnica Principal */}
+      {/* Ficha Técnica Principal */}
       <div className="ficha-tecnica-card">
-        {/* Encabezado Ficha TÃ©cnica */}
+        {/* Encabezado Ficha Técnica */}
         <div className="ficha-header">
           <div className="ficha-title-box">
             <div className="badge-expediente">Expediente Oficial PQRS</div>
@@ -184,7 +184,7 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
           </div>
         </div>
 
-        {/* Rejilla de InformaciÃ³n General */}
+        {/* Rejilla de información General */}
         <div className="info-grid-section">
           <div className="info-item">
             <span className="info-label">
@@ -195,14 +195,14 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
 
           <div className="info-item">
             <span className="info-label">
-              <Tag size={16} /> CategorÃ­a del Servicio:
+              <Tag size={16} /> Categoría del Servicio:
             </span>
             <span className="info-value category-chip">{item.categoria}</span>
           </div>
 
           <div className="info-item">
             <span className="info-label">
-              <Calendar size={16} /> Fecha de RadicaciÃ³n:
+              <Calendar size={16} /> Fecha de Radicación:
             </span>
             <span className="info-value">{item.fechaRadicacion}</span>
           </div>
@@ -219,22 +219,22 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
               <Building2 size={16} /> Dependencia Asignada:
             </span>
             <span className="info-value">
-              SecretarÃ­a de Servicios PÃºblicos y AtenciÃ³n Ciudadana â€” Municipalidad
+              SecretarÃ­a de Servicios Públicos y Atenciónón Ciudadana — Municipalidad
             </span>
           </div>
         </div>
 
-        {/* SecciÃ³n: DescripciÃ³n del TrÃ¡mite */}
+        {/* Sección: Descripción del Trámite */}
         <div className="detalle-block-section">
-          <h3 className="block-title">DescripciÃ³n Detallada de la Solicitud</h3>
+          <h3 className="block-title">Descripción Detallada de la Solicitud</h3>
           <div className="descripcion-content-box">
             <p>{item.descripcion}</p>
           </div>
         </div>
 
-        {/* SecciÃ³n: Respuesta Oficial o Estado de AtenciÃ³n */}
+        {/* Sección: Respuesta Oficial o Estado de Atenciónón */}
         <div className="detalle-block-section">
-          <h3 className="block-title">Respuesta Oficial y Dictamen TÃ©chnico</h3>
+          <h3 className="block-title">Respuesta Oficial y Dictamen Téchnico</h3>
 
           {isResuelto && item.respuestaOficial ? (
             <div className="respuesta-oficial-card">
@@ -248,16 +248,16 @@ export const DetalleConsultaPage: React.FC<DetalleConsultaPageProps> = ({
             <div className="en-tramite-card">
               <div className="en-tramite-header">
                 <Clock size={22} color="#b45309" />
-                <span>TrÃ¡mite en Proceso de AtenciÃ³n</span>
+                <span>Trámite en Proceso de Atenciónón</span>
               </div>
               <p>
-                La solicitud se encuentra asignada al equipo tÃ©cnico de cuadrilla para inspecciÃ³n en terreno dentro del plazo legal estipulado.
+                La solicitud se encuentra asignada al equipo técnico de cuadrilla para inspección en terreno dentro del plazo legal estipulado.
               </p>
             </div>
           )}
         </div>
 
-        {/* Footer / Acciones de la Ficha TÃ©cnica */}
+        {/* Footer / Acciones de la Ficha Técnica */}
         <div className="ficha-footer-actions">
           <button className="btn-secondary-action" onClick={handleVolver}>
             <ArrowLeft size={18} /> Volver a Consultas

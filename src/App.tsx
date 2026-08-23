@@ -58,10 +58,10 @@ export const App: React.FC = () => {
       <div className="top-bar">
         <div className="top-bar-content">
           <div className="top-bar-badge">
-            <Building2 size={16} /> Portal Institucional de Servicios y AtenciÃ³n Ciudadana
+            <Building2 size={16} /> Portal Institucional de Servicios y Atención Ciudadana
           </div>
           <div>
-            <span>LÃ­nea Directa: 01-800-CIUDAD</span>
+            <span>Línea Directa: 01-800-CIUDAD</span>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ export const App: React.FC = () => {
           </div>
           <h1 className="portal-title">Gobierno Municipal</h1>
           <p className="portal-subtitle">
-            Sistema Oficial de AtenciÃ³n, GestiÃ³n de TrÃ¡mites y Respuestas Ciudadanas
+            Sistema Oficial de Atenciónón, gestión de trámites y Respuestas Ciudadanas
           </p>
 
           <div className="nav-tabs-container" style={{ justifyContent: 'center', marginTop: '1.5rem' }}>
@@ -86,7 +86,7 @@ export const App: React.FC = () => {
               }}
               id="tab-btn-inicio"
             >
-              <Building2 size={16} /> Inicio (TrÃ¡mites)
+              <Building2 size={16} /> Inicio (trámites)
             </button>
             <button
               className={`nav-tab-btn ${activeTab === 'consultas' || activeTab === 'detalle' ? 'active' : ''}`}
@@ -107,28 +107,28 @@ export const App: React.FC = () => {
               <div>
                 <h2 className="section-title">Respuestas</h2>
                 <p className="section-description">
-                  Consulta el catÃ¡logo de atenciÃ³n rÃ¡pida a reportes, solicitudes y trÃ¡mites municipales prioritarios.
+                  Consulta el catálogo de Atenciónón rápida a reportes, solicitudes y trámites municipales prioritarios.
                 </p>
               </div>
-              <span className="tag-counter">3 CategorÃ­as Activas</span>
+              <span className="tag-counter">3 Categorías Activas</span>
             </div>
 
             <div className="tramites-grid">
               <TarjetaTramite
                 titulo="Agua y Alcantarillado"
-                descripcion="AtenciÃ³n inmediata a fugas de agua potable, suspensiÃ³n o cortes programados del servicio y mantenimiento preventivo o correctivo de la red de alcantarillado."
-                categoria="Servicios BÃ¡sicos"
+                descripcion="Atención inmediata a fugas de agua potable, suspensión o cortes programados del servicio y mantenimiento preventivo o correctivo de la red de alcantarillado."
+                categoria="Servicios Básicos"
                 icon={<Droplets size={24} />}
               />
               <TarjetaTramite
-                titulo="RecolecciÃ³n de Basura"
-                descripcion="InformaciÃ³n de horarios y rutas de camiones recolectores, reporte de acumulaciÃ³n inusual de residuos sÃ³lidos y limpieza en puntos crÃ­ticos del municipio."
-                categoria="Limpia PÃºblica"
+                titulo="Recolección de Basura"
+                descripcion="información de horarios y rutas de camiones recolectores, reporte de acumulación inusual de residuos sólidos y limpieza en puntos críticos del municipio."
+                categoria="Limpia Pública"
                 icon={<Trash2 size={24} />}
               />
               <TarjetaTramite
-                titulo="Alumbrado PÃºblico"
-                descripcion="Reporte de lÃ¡mparas y luminarias apagadas, reparaciÃ³n de postes caÃ­dos o en riesgo y sustituciÃ³n de luminarias daÃ±adas."
+                titulo="Alumbrado Público"
+                descripcion="Reporte de lámparas y luminarias apagadas, reparación de postes caídos o en riesgo y sustitución de luminarias dañadas."
                 categoria="Alumbrado Urbano"
                 icon={<Lightbulb size={24} />}
               />
@@ -152,7 +152,7 @@ export const App: React.FC = () => {
       <footer className="portal-footer">
         <div className="footer-content">
           <div>
-            <strong>Gobierno Municipal</strong> â€” Sistema Oficial de Servicios y AtenciÃ³n Ciudadana
+            <strong>Gobierno Municipal</strong> — Sistema Oficial de Servicios y Atención Ciudadana
           </div>
           <div>Â© 2026 Todos los derechos reservados</div>
         </div>

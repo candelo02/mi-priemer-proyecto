@@ -53,10 +53,10 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
       } else if (data && Array.isArray(data.data)) {
         setPqrsList(data.data)
       } else {
-        throw new Error('Formato de datos no vÃ¡lido')
+        throw new Error('Formato de datos no válido')
       }
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'No se pudo establecer conexiÃ³n con el servidor.'
+      const msg = err instanceof Error ? err.message : 'No se pudo establecer conexión con el servidor.'
       setError(msg)
     } finally {
       setLoading(false)
@@ -93,14 +93,14 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
 
   return (
     <div className="consultas-page">
-      {/* Encabezado con Buscador y Chips de CategorÃ­a */}
+      {/* Encabezado con Buscador y Chips de Categoría */}
       <div className="consultas-search-header">
         <div className="search-box-container">
           <Search className="search-icon" size={20} />
           <input
             type="text"
             className="search-input"
-            placeholder="Buscar por NÂº Radicado, Nombre, CategorÃ­a o Estado..."
+            placeholder="Buscar por NÂº Radicado, Nombre, Categoría o Estado..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             id="input-busqueda-pqrs"
@@ -109,7 +109,7 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
             <button
               className="btn-clear-search"
               onClick={() => setSearchQuery('')}
-              title="Limpiar bÃºsqueda"
+              title="Limpiar búsqueda"
             >
               âœ•
             </button>
@@ -117,7 +117,7 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
         </div>
 
         <div className="category-filters">
-          {['Todas', 'Agua y Alcantarillado', 'RecolecciÃ³n de Basura', 'Alumbrado PÃºblico'].map((cat) => (
+          {['Todas', 'Agua y Alcantarillado', 'Recolección de Basura', 'Alumbrado Público'].map((cat) => (
             <button
               key={cat}
               className={`filter-chip ${selectedCategory === cat ? 'active' : ''}`}
@@ -133,8 +133,8 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
       {loading && (
         <div className="state-card loading-state" id="state-loading">
           <RotateCw className="spin-icon" size={38} color="#003399" />
-          <h3>Cargando trÃ¡mites y radicados...</h3>
-          <p>Consultando el sistema de registro de atenciÃ³n ciudadana.</p>
+          <h3>Cargando trámites y radicados...</h3>
+          <p>Consultando el sistema de registro de Atenciónón ciudadana.</p>
         </div>
       )}
 
@@ -142,7 +142,7 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
       {!loading && error && (
         <div className="state-card error-state" id="state-error">
           <CircleAlert size={44} color="#dc2626" />
-          <h3>Error de ConexiÃ³n</h3>
+          <h3>Error de Conexión</h3>
           <p>{error}</p>
           <button className="btn-retry" onClick={fetchPqrs} id="btn-reintentar-pqrs">
             <RotateCw size={16} /> Reintentar Consulta
@@ -154,10 +154,10 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
       {!loading && !error && filteredPqrs.length === 0 && (
         <div className="state-card empty-state" id="state-empty">
           <FileQuestion size={44} color="#64748b" />
-          <h3>No se encontraron trÃ¡mites</h3>
+          <h3>No se encontraron trámites</h3>
           <p>
-            No hay radicados que coincidan con la bÃºsqueda "<strong>{searchQuery}</strong>"
-            {selectedCategory !== 'Todas' && ` en la categorÃ­a "${selectedCategory}"`}.
+            No hay radicados que coincidan con la búsqueda "<strong>{searchQuery}</strong>"
+            {selectedCategory !== 'Todas' && ` en la Categoría "${selectedCategory}"`}.
           </p>
           <button
             className="btn-reset-filters"
@@ -181,7 +181,7 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
                 key={item.id}
                 className="pqrs-card clickable-card"
                 onClick={() => handleCardClick(item.id)}
-                title="Haz clic para ver la ficha tÃ©cnica completa"
+                title="Haz clic para ver la ficha técnica completa"
               >
                 <div className="pqrs-card-header">
                   <span className="pqrs-radicado">
@@ -219,7 +219,7 @@ export const ConsultasPage: React.FC<ConsultasPageProps> = ({
                   )}
 
                   <div className="ver-ficha-link">
-                    <span>Ver Ficha TÃ©cnica</span>
+                    <span>Ver Ficha Técnica</span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
